@@ -4,7 +4,18 @@ Ruby Libthai binding for Ruby 1.9.x.
 
 Original progect http://code.google.com/p/libthai4r
 
-## Install libthai
+## Install
+
+### libdatrie
+
+	$ wget ftp://linux.thai.net/pub/thailinux/software/libthai/libdatrie-0.2.4.tar.gz
+	$ tar zxvf libdatrie-0.2.4
+	$ cd libdatrie-0.2.4
+	$ ./configure
+	$ make
+	$ sudo make install
+
+### libthai
 
 	$ wget http://linux.thai.net/pub/thailinux/software/libthai/libthai-0.1.16.tar.gz
 	$ tar zxvf libthai-0.1.16.tar.gz 
@@ -13,7 +24,7 @@ Original progect http://code.google.com/p/libthai4r
 	$ make
 	$ sudo make install
 
-## Install ruby-libthai
+### ruby-libthai
 
 	$ git clone git@github.com:neokain/libthai4r.git
 	$ cd libthai4r
