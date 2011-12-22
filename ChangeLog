@@ -1,0 +1,19 @@
+2011-12-22 Phuwanart Larpmark <neokain@gmail.com>
+
+	* libthai.c:
+	Replace RSTRING(foo)->ptr with RSTRING_PTR(foo)
+	Replace RSTRING(foo)->len with RSTRING_LEN(foo)
+	
+	* test/thbrk.rb:
+	Change test source code
+
+2006-09-19  Vee Satayamas  <veetai@yahoo.com>
+
+	* libthai.c:
+	Reformat coding style
+
+	* ChangeLog:
+	Init 
+
+	* libthai.c:
+	Add method tis?
