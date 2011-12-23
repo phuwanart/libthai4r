@@ -32,6 +32,26 @@ Original progect http://code.google.com/p/libthai4r
 	$ make
 	$ sudo make install
 
+In command *$ make* if you found error like this (I found this problem when compile in Linux)
+
+	./libthai.so: file not recognized: File truncated
+
+That mean the make can't compile output is **libthai.so**
+
+You can fix this problem with edit **Makefile** to complie in another name extension
+
+	DLLIB = $(TARGET).so --> DLLIB = $(TARGET).sox
+
+and
+
+	CLEANLIBS     = $(TARGET).so --> CLEANLIBS     = $(TARGET).sox
+
+atfer that change file name extension that compile finish
+
+	$ mv libthai.sox libthai.so
+
+and can *$ sudo make install*. You can test with test file in test folder.
+
 ## Usage
 
 You much install iconv. If You using RMV you can do follow this http://beginrescueend.com/packages/iconv
