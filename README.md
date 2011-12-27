@@ -26,7 +26,7 @@ Original progect http://code.google.com/p/libthai4r
 
 ### ruby-libthai
 
-	$ git clone git@github.com:neokain/libthai4r.git
+	$ mkdir libthai4r && curl -L https://github.com/neokain/libthai4r/zipball/master | tar xz --strip 1 -C libthai4r
 	$ cd libthai4r
 	$ sudo ruby extconf.rb
 	$ make
