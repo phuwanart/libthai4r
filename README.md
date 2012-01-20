@@ -34,17 +34,15 @@ Original progect http://code.google.com/p/libthai4r
 
 In command *$ make* if you found error like this (I found this problem when compile in Linux)
 
+	$ make
+	gcc -shared -o libthai.so libthai.o -L. -L/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -Wl,-R/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -L.  -rdynamic -Wl,-export-dynamic -L/usr/local/lib -lthai     -Wl,-R -Wl,/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -L/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -lruby  -lpthread -lrt -ldl -lcrypt -lm   -lc
 	./libthai.so: file not recognized: File truncated
+	collect2: ld returned 1 exit status
+	make: *** [libthai.so] Error 1
 
-That mean the make can't compile output is **libthai.so**
+if you found this you can manual compile with
 
-You can fix this problem with edit **Makefile** to complie in another name extension
-
-	DLLIB = $(TARGET).so --> DLLIB = $(TARGET).sox
-
-and
-
-	CLEANLIBS     = $(TARGET).so --> CLEANLIBS     = $(TARGET).sox
+	gcc -shared -o libthai.sox libthai.o -L. -L/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -Wl,-R/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -L.  -rdynamic -Wl,-export-dynamic -L/usr/local/lib -lthai     -Wl,-R -Wl,/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -L/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -lruby  -lpthread -lrt -ldl -lcrypt -lm   -lc
 
 atfer that change file name extension that compile finish
 
