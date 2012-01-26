@@ -9,7 +9,7 @@ Original progect http://code.google.com/p/libthai4r
 ### libdatrie
 
 	$ wget ftp://linux.thai.net/pub/thailinux/software/libthai/libdatrie-0.2.4.tar.gz
-	$ tar zxvf libdatrie-0.2.4
+	$ tar zxvf libdatrie-0.2.4.tar.gz
 	$ cd libdatrie-0.2.4
 	$ ./configure
 	$ make
@@ -28,7 +28,7 @@ Original progect http://code.google.com/p/libthai4r
 
 	$ mkdir libthai4r && curl -L https://github.com/neokain/libthai4r/tarball/master | tar xz --strip 1 -C libthai4r
 	$ cd libthai4r
-	$ sudo ruby extconf.rb
+	$ sudo ruby extconf.rb #( if use rvm ⇒ $ rvmsudo ruby extconf.rb )
 	$ make
 	$ sudo make install
 
@@ -40,7 +40,7 @@ In command *$ make* if you found error like this (I found this problem when comp
 	collect2: ld returned 1 exit status
 	make: *** [libthai.so] Error 1
 
-if you found this you can manual compile with
+if you found this you can manual compile with copy message after make and change **libthai.so ⇒ libthai.sox**
 
 	gcc -shared -o libthai.sox libthai.o -L. -L/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -Wl,-R/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -L.  -rdynamic -Wl,-export-dynamic -L/usr/local/lib -lthai     -Wl,-R -Wl,/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -L/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -lruby  -lpthread -lrt -ldl -lcrypt -lm   -lc
 
@@ -49,6 +49,9 @@ atfer that change file name extension that compile finish
 	$ mv libthai.sox libthai.so
 
 and can *$ sudo make install*. You can test with test file in test folder.
+
+	$ ruby test/thbrk.rb
+	ภาษา|ไทย|เป็น|ภาษา|ที่|ง่าย|ที่สุด|ใน|โลก
 
 ## Usage
 
