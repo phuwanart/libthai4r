@@ -28,27 +28,39 @@ Original progect http://code.google.com/p/libthai4r
 
 	$ mkdir libthai4r && curl -L https://github.com/neokain/libthai4r/tarball/master | tar xz --strip 1 -C libthai4r
 	$ cd libthai4r
-	$ sudo ruby extconf.rb #( if use rvm ⇒ $ rvmsudo ruby extconf.rb )
+	$ ruby extconf.rb
 	$ make
 	$ sudo make install
 
 In command *$ make* if you found error like this (I found this problem when compile in Linux)
 
 	$ make
-	gcc -shared -o libthai.so libthai.o -L. -L/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -Wl,-R/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -L.  -rdynamic -Wl,-export-dynamic -L/usr/local/lib -lthai     -Wl,-R -Wl,/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -L/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -lruby  -lpthread -lrt -ldl -lcrypt -lm   -lc
 	./libthai.so: file not recognized: File truncated
 	collect2: ld returned 1 exit status
 	make: *** [libthai.so] Error 1
 
-if you found this you can manual compile with copy message after make and change **libthai.so ⇒ libthai.sox**
+Because can't make `libthai.so`. The way of fix it you mush modify `Makfile`.
 
-	gcc -shared -o libthai.sox libthai.o -L. -L/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -Wl,-R/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -L.  -rdynamic -Wl,-export-dynamic -L/usr/local/lib -lthai     -Wl,-R -Wl,/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -L/usr/local/rvm/rubies/ruby-1.9.2-p290/lib -lruby  -lpthread -lrt -ldl -lcrypt -lm   -lc
+Find 2 line in `Makefile`
 
-atfer that change file name extension that compile finish
+	LLIB = $(TARGET).so
+
+and
+
+	CLEANLIBS     = $(TARGET).so
+
+Change extension name form `.so` to `.sox`. Then run `$ make` again. You must have `libthai.sox`.
+
+Run `$ sudo make install`. You have message like this:
+
+	usr/bin/install -c -m 0755 libthai.sox /home/phuwanart/.rvm/rubies/ruby-2.0.0-p195/lib/ruby/site_ruby/2.0.0/i686-linux
+	installing default libthai libraries
+
+atfer that goto `/home/phuwanart/.rvm/rubies/ruby-2.0.0-p195/lib/ruby/site_ruby/2.0.0/i686-linux` and change file name extension back to `.so`:
 
 	$ mv libthai.sox libthai.so
 
-and can *$ sudo make install*. You can test with test file in test folder.
+You can test with test file in test folder of source:
 
 	$ ruby test/thbrk.rb
 	ภาษา|ไทย|เป็น|ภาษา|ที่|ง่าย|ที่สุด|ใน|โลก

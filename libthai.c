@@ -25,7 +25,7 @@ f_th_brk(VALUE obj,VALUE v_str)
 static VALUE
 f_th_brk_line(int argc,VALUE *argv,VALUE obj)
 {
-  char *cut_code;
+  const char *cut_code;
   char *out;
   size_t out_len;
   int n;
