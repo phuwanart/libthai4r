@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Libthai4r by neokain</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Libthai4r</h1>
+          <h2>Ruby Libthai binding for Ruby.</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/neokain/libthai4r/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/neokain/libthai4r/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/neokain/libthai4r" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="libthai4r" class="anchor" href="#libthai4r"><span class="octicon octicon-link"></span></a>libthai4r</h1>
+
+<p>Ruby Libthai binding for Ruby.</p>
+
+<p>Original progect <a href="http://code.google.com/p/libthai4r">http://code.google.com/p/libthai4r</a></p>
+
+<h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<h3>
+<a name="libdatrie" class="anchor" href="#libdatrie"><span class="octicon octicon-link"></span></a>libdatrie</h3>
+
+<pre><code>$ wget ftp://linux.thai.net/pub/thailinux/software/libthai/libdatrie-0.2.4.tar.gz
+$ tar zxvf libdatrie-0.2.4.tar.gz
+$ cd libdatrie-0.2.4
+$ ./configure
+$ make
+$ sudo make install
+</code></pre>
+
+<h3>
+<a name="libthai" class="anchor" href="#libthai"><span class="octicon octicon-link"></span></a>libthai</h3>
+
+<pre><code>$ wget http://linux.thai.net/pub/thailinux/software/libthai/libthai-0.1.16.tar.gz
+$ tar zxvf libthai-0.1.16.tar.gz
+$ cd libthai-0.1.16/
+$ ./configure
+$ make
+$ sudo make install
+</code></pre>
+
+<h3>
+<a name="ruby-libthai" class="anchor" href="#ruby-libthai"><span class="octicon octicon-link"></span></a>ruby-libthai</h3>
+
+<pre><code>$ mkdir libthai4r &amp;&amp; curl -L https://github.com/neokain/libthai4r/tarball/master | tar xz --strip 1 -C libthai4r
+$ cd libthai4r
+$ ruby extconf.rb
+$ make
+$ sudo make install
+</code></pre>
+
+<p>In command <code>$ make</code> if you found error like this (I found this problem when compile in Linux)</p>
+
+<pre><code>$ make
+./libthai.so: file not recognized: File truncated
+collect2: ld returned 1 exit status
+make: *** [libthai.so] Error 1
+</code></pre>
+
+<p>Because can't make <code>libthai.so</code>. The way of fix it you mush modify <code>Makfile</code>.</p>
+
+<p>Find 2 line in <code>Makefile</code></p>
+
+<pre><code>LLIB = $(TARGET).so
+</code></pre>
+
+<p>and</p>
+
+<pre><code>CLEANLIBS     = $(TARGET).so
+</code></pre>
+
+<p>Change extension name form <code>.so</code> to <code>.sox</code>. Then run <code>$ make</code> again. You must have <code>libthai.sox</code>.</p>
+
+<p>Run <code>$ sudo make install</code>. You have message like this:</p>
+
+<pre><code>usr/bin/install -c -m 0755 libthai.sox /home/phuwanart/.rvm/rubies/ruby-2.0.0-p195/lib/ruby/site_ruby/2.0.0/i686-linux
+installing default libthai libraries
+</code></pre>
+
+<p>atfer that goto <code>/home/phuwanart/.rvm/rubies/ruby-2.0.0-p195/lib/ruby/site_ruby/2.0.0/i686-linux</code> and change file name extension back to <code>.so</code>:</p>
+
+<pre><code>$ mv libthai.sox libthai.so
+</code></pre>
+
+<p>You can test with test file in test folder of source:</p>
+
+<pre><code>$ ruby test/thbrk.rb
+ภาษา|ไทย|เป็น|ภาษา|ที่|ง่าย|ที่สุด|ใน|โลก
+</code></pre>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>You much install iconv if You using RMV.</p>
+
+<pre><code>$ gem install iconv
+</code></pre>
+
+<p>Example:</p>
+
+<pre><code>#!/usr/bin/env ruby
+# encoding: utf-8
+
+require "iconv"
+require 'libthai'
+
+utf8_to_tis620 = Iconv.new("TIS620", "UTF-8")
+a = LibThai::brk_line(utf8_to_tis620.iconv("ภาษาไทยเป็นภาษาที่ง่ายที่สุดในโลก"))
+
+tis620_to_utf8 = Iconv.new("UTF-8", "TIS620")
+o = tis620_to_utf8.iconv(a)
+
+print o
+</code></pre>
+
+<p>Result:</p>
+
+<pre><code>ภาษา|ไทย|เป็น|ภาษา|ที่|ง่าย|ที่สุด|ใน|โลก
+</code></pre>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Copyright © 2011 Phuwanart Larpmark, released under the MIT license</p>
+        </section>
+
+        <footer>
+          Libthai4r is maintained by <a href="https://github.com/neokain">neokain</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
