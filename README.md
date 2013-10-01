@@ -1,6 +1,6 @@
 # libthai4r
 
-Ruby Libthai binding for Ruby 1.9.x.
+Ruby Libthai binding for Ruby.
 
 Original progect http://code.google.com/p/libthai4r
 
@@ -18,9 +18,9 @@ Original progect http://code.google.com/p/libthai4r
 ### libthai
 
 	$ wget http://linux.thai.net/pub/thailinux/software/libthai/libthai-0.1.16.tar.gz
-	$ tar zxvf libthai-0.1.16.tar.gz 
+	$ tar zxvf libthai-0.1.16.tar.gz
 	$ cd libthai-0.1.16/
-	$ ./configure 
+	$ ./configure
 	$ make
 	$ sudo make install
 
@@ -55,7 +55,11 @@ and can *$ sudo make install*. You can test with test file in test folder.
 
 ## Usage
 
-You much install iconv. If You using RMV you can do follow this http://beginrescueend.com/packages/iconv
+You much install iconv if You using RMV.
+
+	$ gem install iconv
+
+Example:
 
 	#!/usr/bin/env ruby
 	# encoding: utf-8
@@ -71,7 +75,7 @@ You much install iconv. If You using RMV you can do follow this http://beginresc
 
 	print o
 
-Result
+Result:
 
 	ภาษา|ไทย|เป็น|ภาษา|ที่|ง่าย|ที่สุด|ใน|โลก
 

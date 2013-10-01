@@ -8,14 +8,14 @@ module PkgConfig
       if system "pkg-config #{pkg_name} --atleast-version #{version}" then
 	found=true
       end
-    else 
+    else
       print "checking for package #{pkg_name} ... "
       if system "pkg-config #{pkg_name}"
 	found=true
       end
     end
     if found then
-      
+
       print "yes\n"
       @found = true
       pipe = IO.popen "pkg-config #{pkg_name} --cflags"
@@ -24,7 +24,7 @@ module PkgConfig
       pipe = IO.popen "pkg-config #{pkg_name} --libs"
       @libs = pipe.gets.chomp
       pipe.close
-      
+
       $CFLAGS=$CFLAGS+" "+@cflags
       $LDFLAGS=$LDFLAGS+" "+@libs
     else

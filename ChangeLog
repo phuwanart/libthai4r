@@ -1,9 +1,16 @@
+2013-10-01 Phuwanart Larpmark <neokain@gmail.com>
+
+	use .ruby-version replace .rvmrc and set ruby 2.0.0.
+
+	* libthai.c:
+	Fixed warning: implicit declaration of function 'th_istis' is invalid in C99
+
 2011-12-22 Phuwanart Larpmark <neokain@gmail.com>
 
 	* libthai.c:
 	Replace RSTRING(foo)->ptr with RSTRING_PTR(foo)
 	Replace RSTRING(foo)->len with RSTRING_LEN(foo)
-	
+
 	* test/thbrk.rb:
 	Change test source code
 
@@ -13,7 +20,7 @@
 	Reformat coding style
 
 	* ChangeLog:
-	Init 
+	Init
 
 	* libthai.c:
 	Add method tis?

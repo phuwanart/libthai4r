@@ -4,6 +4,7 @@
 
 VALUE mLibThai;
 
+extern int th_istis(thchar_t c);
 
 static VALUE
 f_th_brk(VALUE obj,VALUE v_str)
@@ -34,12 +35,12 @@ f_th_brk_line(int argc,VALUE *argv,VALUE obj)
     {
       rb_raise(rb_eStandardError,"%s","Invalid argument.");
     }
-    
-  if(argc < 2) 
+
+  if(argc < 2)
     {
-      cut_code="|"; 
-    } 
-  else 
+      cut_code="|";
+    }
+  else
     {
       cut_code=RSTRING_PTR(argv[1]);
     }
@@ -53,7 +54,7 @@ f_th_brk_line(int argc,VALUE *argv,VALUE obj)
 }
 
 
-static VALUE 
+static VALUE
 f_th_normalize(VALUE obj,VALUE v_str)
 {
   char *ostr;

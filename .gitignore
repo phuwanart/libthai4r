@@ -1,0 +1,4 @@
+.RUBYARCHDIR.time
+libthai.bundle
+libthai.o
+Makefile
