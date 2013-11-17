@@ -92,7 +92,7 @@ $ gem install iconv
 
 Example:
 
-```bash
+```ruby
 #!/usr/bin/env ruby
 # encoding: utf-8
 
