@@ -1,17 +1,17 @@
 #!/usr/bin/env ruby
-require "mkmf"
+require 'mkmf'
 module PkgConfig
-  def PkgConfig.find(pkg_name,version=nil)
-    found=false
-    if version != nil then
+  def self.find(pkg_name, version = nil)
+    found = false
+    if version then
       print "checking for package #{pkg_name} >= #{version} ... "
       if system "pkg-config #{pkg_name} --atleast-version #{version}" then
-	found=true
+        found = true
       end
     else
       print "checking for package #{pkg_name} ... "
       if system "pkg-config #{pkg_name}"
-	found=true
+        found = true
       end
     end
     if found then
@@ -25,8 +25,8 @@ module PkgConfig
       @libs = pipe.gets.chomp
       pipe.close
 
-      $CFLAGS=$CFLAGS+" "+@cflags
-      $LDFLAGS=$LDFLAGS+" "+@libs
+      $CFLAGS = $CFLAGS + ' ' + @cflags
+      $LDFLAGS = $LDFLAGS + ' ' + @libs
     else
       print "no\n"
       exit
@@ -34,6 +34,5 @@ module PkgConfig
   end
 end
 
-PkgConfig.find("libthai","0.1.1")
-create_makefile "libthai"
-
+PkgConfig.find('libthai', '0.1.1')
+create_makefile 'libthai'
