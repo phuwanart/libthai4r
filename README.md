@@ -2,7 +2,7 @@
 
 Ruby Libthai binding for Ruby.
 
-Original progect http://code.google.com/p/libthai4r
+Original project http://code.google.com/p/libthai4r
 
 ## Install
 
