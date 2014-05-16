@@ -65,11 +65,11 @@ Change extension name form `.so` to `.sox`. Then run `$ make` again. You must ha
 Run `$ sudo make install`. You have message like this:
 
 ```bash
-usr/bin/install -c -m 0755 libthai.sox /home/phuwanart/.rvm/rubies/ruby-2.0.0-p195/lib/ruby/site_ruby/2.0.0/i686-linux
+usr/bin/install -c -m 0755 libthai.sox [PATH]
 installing default libthai libraries
 ```
 
-atfer that goto `/home/phuwanart/.rvm/rubies/ruby-2.0.0-p195/lib/ruby/site_ruby/2.0.0/i686-linux` and change file name extension back to `.so`:
+atfer that goto `[PATH]` and change file name extension back to `.so`:
 
 ```bash
 $ mv libthai.sox libthai.so
@@ -84,7 +84,7 @@ $ ruby test/thbrk.rb
 
 ## Usage
 
-You much install iconv if You using RMV.
+You much install `iconv`.
 
 ```bash
 $ gem install iconv
