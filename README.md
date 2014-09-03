@@ -4,7 +4,7 @@ Ruby Libthai binding for Ruby.
 
 Original project: [libthai4r](http://code.google.com/p/libthai4r)
 
-[libthai](http://linux.thai.net/pub/thailinux/software/libthai)
+Lib source code: [libthai](http://linux.thai.net/pub/thailinux/software/libthai)
 
 ## Install
 
