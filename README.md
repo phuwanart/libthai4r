@@ -2,16 +2,18 @@
 
 Ruby Libthai binding for Ruby.
 
-Original project http://code.google.com/p/libthai4r
+Original project: [libthai4r](http://code.google.com/p/libthai4r)
+
+[libthai](http://linux.thai.net/pub/thailinux/software/libthai)
 
 ## Install
 
 ### libdatrie
 
 ```bash
-$ wget ftp://linux.thai.net/pub/thailinux/software/libthai/libdatrie-0.2.4.tar.gz
-$ tar zxvf libdatrie-0.2.4.tar.gz
-$ cd libdatrie-0.2.4
+$ wget http://linux.thai.net/pub/thailinux/software/libthai/libdatrie-0.2.5.tar.gz
+$ tar -zxvf libdatrie-0.2.5.tar.gz
+$ cd libdatrie-0.2.5
 $ ./configure
 $ make
 $ sudo make install
@@ -20,9 +22,9 @@ $ sudo make install
 ### libthai
 
 ```bash
-$ wget http://linux.thai.net/pub/thailinux/software/libthai/libthai-0.1.16.tar.gz
-$ tar zxvf libthai-0.1.16.tar.gz
-$ cd libthai-0.1.16/
+$ wget http://linux.thai.net/pub/thailinux/software/libthai/libthai-0.1.18.tar.gz
+$ tar zxvf libthai-0.1.18.tar.gz
+$ cd libthai-0.1.18/
 $ ./configure
 $ make
 $ sudo make install
@@ -38,7 +40,7 @@ $ make
 $ sudo make install
 ```
 
-In command *$ make* if you found error like this (I found this problem when compile in Linux)
+In command `$ make` if you found error like this (I found this problem when compile in Linux)
 
 ```bash
 $ make
