@@ -33,7 +33,7 @@ $ sudo make install
 ### ruby-libthai
 
 ```bash
-$ mkdir libthai4r && curl -L https://github.com/neokain/libthai4r/tarball/master | tar xz --strip 1 -C libthai4r
+$ mkdir libthai4r && curl -L https://github.com/phuwanart/libthai4r/tarball/master | tar xz --strip 1 -C libthai4r
 $ cd libthai4r
 $ ruby extconf.rb
 $ make
