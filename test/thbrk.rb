@@ -11,4 +11,4 @@ tis620_to_utf8 = Iconv.new('UTF-8', 'TIS620')
 
 o = tis620_to_utf8.iconv(a)
 
-print o
+puts o

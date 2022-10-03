@@ -11,33 +11,33 @@ Lib source code: [libthai](http://linux.thai.net/pub/thailinux/software/libthai)
 ### libdatrie
 
 ```bash
-$ wget http://linux.thai.net/pub/thailinux/software/libthai/libdatrie-0.2.5.tar.gz
-$ tar -zxvf libdatrie-0.2.5.tar.gz
-$ cd libdatrie-0.2.5
-$ ./configure
-$ make
-$ sudo make install
+wget http://linux.thai.net/pub/thailinux/software/libthai/libdatrie-0.2.5.tar.gz
+tar -zxvf libdatrie-0.2.5.tar.gz
+cd libdatrie-0.2.5
+./configure
+make
+sudo make install
 ```
 
 ### libthai
 
 ```bash
-$ wget http://linux.thai.net/pub/thailinux/software/libthai/libthai-0.1.18.tar.gz
-$ tar zxvf libthai-0.1.18.tar.gz
-$ cd libthai-0.1.18/
-$ ./configure
-$ make
-$ sudo make install
+wget http://linux.thai.net/pub/thailinux/software/libthai/libthai-0.1.18.tar.gz
+tar zxvf libthai-0.1.18.tar.gz
+cd libthai-0.1.18/
+./configure
+make
+sudo make install
 ```
 
 ### ruby-libthai
 
 ```bash
-$ mkdir libthai4r && curl -L https://github.com/phuwanart/libthai4r/tarball/master | tar xz --strip 1 -C libthai4r
-$ cd libthai4r
-$ ruby extconf.rb
-$ make
-$ sudo make install
+mkdir libthai4r && curl -L https://github.com/phuwanart/libthai4r/tarball/master | tar xz --strip 1 -C libthai4r
+cd libthai4r
+ruby extconf.rb
+make
+sudo make install
 ```
 
 In command `$ make` if you found error like this (I found this problem when compile in Linux)
@@ -56,6 +56,7 @@ Find 2 line in `Makefile`
 ```
 LLIB = $(TARGET).so
 ```
+
 and
 
 ```
@@ -108,7 +109,7 @@ tis620_to_utf8 = Iconv.new('UTF-8', 'TIS620')
 
 o = tis620_to_utf8.iconv(a)
 
-print o
+puts o
 ```
 
 Result:
