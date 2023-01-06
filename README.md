@@ -22,6 +22,10 @@ sudo make install
 ### libthai
 
 ```bash
+sudo apt-get install pkg-config
+```
+
+```bash
 wget http://linux.thai.net/pub/thailinux/software/libthai/libthai-0.1.18.tar.gz
 tar zxvf libthai-0.1.18.tar.gz
 cd libthai-0.1.18/
