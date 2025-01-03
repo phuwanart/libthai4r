@@ -38,7 +38,7 @@ f_th_brk_line(int argc,VALUE *argv,VALUE obj)
 
   if(argc < 2)
     {
-      cut_code="|";
+      cut_code=" ";
     }
   else
     {

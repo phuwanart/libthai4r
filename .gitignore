@@ -2,3 +2,5 @@
 libthai.bundle
 libthai.o
 Makefile
+.sitearchdir.time
+libthai.bundle.dSYM/
