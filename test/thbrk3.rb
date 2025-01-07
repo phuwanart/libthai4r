@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+
 require 'libthai'
-a=LibThai::th_brk("ÊÒÇµÒ¡ÅÁ..¢ÒÇÊÇÂ...\n");
+a = LibThai.brk("ï¿½ï¿½ÇµÒ¡ï¿½ï¿½..ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...\n")
 print a
